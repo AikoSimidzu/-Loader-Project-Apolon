@@ -1,0 +1,15 @@
+body{
+    background-color: #48D1CC;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    color: white;
+}
+th, p, h2,{
+    color: black;
+}
+td {
+	color: black;
+}
+

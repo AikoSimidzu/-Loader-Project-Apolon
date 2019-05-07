@@ -1,0 +1,14 @@
+C:\Users\steal\source\repos\dwm\dwm\obj\Debug\dwm.csprojAssemblyReference.cache
+C:\Users\steal\source\repos\dwm\dwm\obj\Debug\dwm.csproj.CoreCompileInputs.cache
+C:\Users\steal\source\repos\dwm\dwm\bin\Debug\Drivеrs.exe.config
+C:\Users\steal\source\repos\dwm\dwm\bin\Debug\Drivеrs.exe
+C:\Users\steal\source\repos\dwm\dwm\bin\Debug\Drivеrs.pdb
+C:\Users\steal\source\repos\dwm\dwm\obj\Debug\Drivеrs.exe
+C:\Users\steal\source\repos\dwm\dwm\obj\Debug\Drivеrs.pdb
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\obj\Debug\dwm.csprojAssemblyReference.cache
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\obj\Debug\dwm.csproj.CoreCompileInputs.cache
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\bin\Debug\dwm.exe.config
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\bin\Debug\dwm.exe
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\bin\Debug\dwm.pdb
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\obj\Debug\dwm.exe
+C:\Users\steal\Desktop\Project Apolon\Лоадер\dwm\dwm\obj\Debug\dwm.pdb

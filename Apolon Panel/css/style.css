@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  background: #fff; 
+}
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
+}
+
+#polina { 
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+}
+#polina button { 
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px; 
+  cursor: pointer;
+  transition: .3s background;
+}
+#polina button:hover { 
+   background: rgba(0,0,0,0.5);
+}
+
+a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background; 
+}
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(img/5eVN50rb6UA.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+
+#login-form {
+	background-color: #363636;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;		
+	margin: 150px auto;
+	width: 300px;
+  font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+  -webkit-box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+   box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+   opacity: 0.7;
+  
+}
+
+#login-form h1 {
+	background-color: #292829;
+	border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+#login-form fieldset {
+	border: none;
+	padding: 20px;
+	position: relative;
+}
+
+
+#login-form fieldset form {
+	overflow: hidden;
+	width: 270px;
+}
+
+#login-form fieldset form input {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	outline: none;
+  -webkit-appearance:none;
+  width: 260px;
+  align: center;
+  position: center;
+  
+
+}
+
+#login-form fieldset form input[type="text"] {
+	border: 1px solid #292829;
+	border-radius: 3px 3px 0px 0px;
+	-moz-border-radius: 3px 3px 0px 0px;
+	-webkit-border-radius: 3px 3px 0px 0px;
+	padding: 12px 10px;
+	width: 238px;
+  -webkit-appearance:none;
+}
+
+#login-form fieldset form input[type="password"] {
+	border: 1px solid #292829;
+	border-top: none;
+	border-radius: 0px 0px 3px 3px;
+	-moz-border-radius: 0px 0px 3px 3px;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	padding: 12px 10px;
+	width: 238px;
+  -webkit-appearance:none;
+}
+
+#login-form fieldset form input[type="submit"] {
+	background-color: #ebebeb;
+	border: none;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	color: #404040;
+	cursor: pointer;
+	float: none;
+	font-weight: bold;
+	margin-top: 20px;
+	padding: 12px 12px;
+  -webkit-appearance: none;
+}
+
+#login-form fieldset form input[type="submit"]:hover {
+	background-color: #e0e0e0;
+}
+
+#login-form fieldset form span:before {
+	background-color: #c9c9c9;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	content: "?";
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 10px;
+	text-align: center;
+	width: 20px;
+}
+
+#login-form fieldset form span {
+	font-size: 12px;
+	margin-top: 40px;
+}
+
+#login-form fieldset form span a{
+	color: #eb6d1a;
+	text-decoration: none;	
+}
+
+#login-form fieldset form span a:hover {
+	color: #eb6d1a;
+}
+
+.alert{
+	text-align: center; 
+	display: none;
+	color: #FF0000;
+}
