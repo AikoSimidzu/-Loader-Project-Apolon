@@ -31,8 +31,6 @@
             <div class="container-fluid" style = "background-color: #ffffff">               
                 <ul class="nav navbar-nav">
 				<li><a href="loader.php" style="color: black">Loader</a></li>
-				<li><a href="antidel.php" style="color: black">Модуль</a></li>
-				<li><a href="module.php" style="color: black">Модуль (Билд)</a></li>
 				<li><a href="logout.php" style="color: black">Выйти</a></li>
                 
                 </ul>
