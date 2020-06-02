@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApolonSpaceXLoader", "ApolonSpaceXLoader\ApolonSpaceXLoader.csproj", "{DCE37310-85AE-4F8E-82B3-1EB8EF111AE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncrDecr", "EncrDecr\EncrDecr.csproj", "{6981DB8F-C89B-421B-8D1C-B50822E0DEF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE37310-85AE-4F8E-82B3-1EB8EF111AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE37310-85AE-4F8E-82B3-1EB8EF111AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE37310-85AE-4F8E-82B3-1EB8EF111AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE37310-85AE-4F8E-82B3-1EB8EF111AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6981DB8F-C89B-421B-8D1C-B50822E0DEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6981DB8F-C89B-421B-8D1C-B50822E0DEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6981DB8F-C89B-421B-8D1C-B50822E0DEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6981DB8F-C89B-421B-8D1C-B50822E0DEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C5524F7-774E-4EB1-844A-6AE81A30F1C8}
+	EndGlobalSection
+EndGlobal

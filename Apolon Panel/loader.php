@@ -1,9 +1,5 @@
 <?php
-    session_start();
-    if($_SESSION['auth'] != 'true'){
-        header("Location: index.php");
-        die();
-    }
+  include('protect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,15 +24,15 @@
                 <div class="navbar-header">
                 </div>
                 <ul class="nav navbar-nav">
-                <li><a href="table.php" style="color: black">Панель</a></li>
-				<li><a href="logout.php" style="color: black">Выйти</a></li>                
+                <li><a href="table.php" style="color: black">Panel</a></li>
+				<li><a href="logout.php" style="color: black">Logout</a></li>                
                 </ul>
             </div>
         </nav>
 		
         <div style="width:25%; margin: 0 auto;">
             <div class="well" style="opacity: 0.9; text-align:center;">
-            <h4>Изменить ссылку</h4>
+            <h4>Change link</h4>
 			<?php
 					echo file_get_contents("loader.txt");
 			?>
@@ -46,7 +42,7 @@
                     	<form method="POST" action="">
 						<input name="writing" type="text">
                     </div>					                     				
-				<input type="submit" class="btn btn-primary" name="send" value="Изменить">
+				<input type="submit" class="btn btn-primary" name="send" value="Change">
                 </form>
 				
 				
@@ -56,18 +52,25 @@
 </html>
 
 <?php
+
+    function refresh()
+    {
+        ?>
+        <script>
+            document.location.href = "/loader.php";
+        </script>
+        <?php
+    } 
+    ?>
+<?php
 	
 	if(isset($_POST['send']))
 	{
 		
-		$f = fopen("loader.txt","w");
-	
-		fwrite($f, $_POST['writing']);
-	
+		$f = fopen("loader.txt","w");	
+		fwrite($f, $_POST['writing']);	
 		fclose($f);
-		
-		header('Location: loader.php');
-		
+                refresh();
 	}
 
 ?>

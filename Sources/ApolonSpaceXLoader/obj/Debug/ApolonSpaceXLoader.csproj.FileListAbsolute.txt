@@ -1,0 +1,6 @@
+C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\bin\Debug\ApolonSpaceXLoader.exe
+C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\bin\Debug\ApolonSpaceXLoader.pdb
+C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.csprojAssemblyReference.cache
+C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.csproj.CoreCompileInputs.cache
+C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.exe
+C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.pdb

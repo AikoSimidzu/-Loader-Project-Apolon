@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 22 2019 г., 14:46
--- Версия сервера: 10.1.37-MariaDB-2.cba
--- Версия PHP: 7.1.27
+-- Время создания: Июн 01 2020 г., 13:29
+-- Версия сервера: 10.1.38-MariaDB
+-- Версия PHP: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `aiko29`
+-- База данных: `apolon`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +33,9 @@ CREATE TABLE `bots` (
   `hwid` longtext NOT NULL,
   `checked` varchar(45) NOT NULL,
   `ip` longtext NOT NULL,
-  `country` varchar(45) NOT NULL
+  `country` varchar(45) NOT NULL,
+  `OS` longtext,
+  `AV` longtext
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -77,12 +81,15 @@ ALTER TABLE `userinfo`
 -- AUTO_INCREMENT для таблицы `bots`
 --
 ALTER TABLE `bots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT для таблицы `userinfo`
 --
 ALTER TABLE `userinfo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

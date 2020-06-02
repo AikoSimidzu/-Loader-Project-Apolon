@@ -1,0 +1,7 @@
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\bin\Debug\EncrDecr.exe.config
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\bin\Debug\EncrDecr.exe
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\bin\Debug\EncrDecr.pdb
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\obj\Debug\EncrDecr.csprojAssemblyReference.cache
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\obj\Debug\EncrDecr.csproj.CoreCompileInputs.cache
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\obj\Debug\EncrDecr.exe
+C:\Users\steal\source\repos\ApolonSpaceXLoader\EncrDecr\obj\Debug\EncrDecr.pdb

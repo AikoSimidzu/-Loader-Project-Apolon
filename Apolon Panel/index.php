@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,49 +16,55 @@
     <script src="js/funcs.js"></script>
 	<style>[class="cbalink"]{display:none;}</style>
   </head>
-  <body>
-  
-<?php
-session_start();
-if($_SESSION['auth'] == 'true')
-    header("Location: /table.php");
-
-?>
-
+  <body>  
 <div id="login-form">
-      <h1>АВТОРИЗАЦИЯ</h1>
+      <h1>AUTH</h1>
         <fieldset>
             <div style="height: 20px;">
                 <div class="alert" id="wrong">
-                    <strong>Не правильный пароль!</strong>
+                    <strong>Warn!</strong>
                 </div>
             </div>
             <form method="post" id="auth">
                 <input type="text" required name="login" value="LOGIN" onBlur="if(this.value=='')this.value='LOGIN'" onFocus="if(this.value=='LOGIN')this.value='' "> 
-                <input type="password" required name="password" value="Пароль" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' "> 
-                <input type="submit" value="ВОЙТИ">
+                <input type="password" required name="pass" value="AUT" onBlur="if(this.value=='')this.value='AUT'" onFocus="if(this.value=='AUT')this.value='' "> 
+                <input type="submit" value="ENTER" name="sub">
             </form>
         </fieldset>
     </div> 
-    <script>
-        $("#auth").submit(function(e) {
-            var url = "cmd.php"; // the script where you handle the form input.
+    
+      <?php
 
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: $("#auth").serialize(), // serializes the form's elements.
-                success: function(data)
-                {
-                    if(data == 'true')
-                        location.href = '/table.php';
-                    else
-                        err(); // show response from the php script.
+    function href()
+    {
+        ?>
+        <script>
+            document.location.href = "/Table.php";
+        </script>
+        <?php
+    }
+
+    if ($_POST['sub'] == true) {
+        $_SESSION["login"] = htmlspecialchars($_POST['login']);
+        $_SESSION["password"] = htmlspecialchars($_POST['pass']);
+
+        if (!mysqli_connect_errno()) {
+            if($result) {
+                while ($row = mysqli_fetch_row($result)) {
+                    if ($_SESSION["login"] == "$row[1]" & $_SESSION["password"] == "$row[2]"){
+                        href();
+                    }
+                    else{
+                        if ($_SESSION["login"] != null) {
+                            echo "Bad password!!!";
+                        }
+                    }
                 }
-                });
-
-            e.preventDefault(); // avoid to execute the actual submit of the form.
-        });
-    </script>
+                mysqli_free_result($result);
+            }
+            exit();
+        }
+    }
+    ?>
   </body>
 </html>
