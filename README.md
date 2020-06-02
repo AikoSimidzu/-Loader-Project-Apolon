@@ -13,3 +13,5 @@ Updated due to being bored in quarantine.
 -Autorun
 
 C#, Framework 4, PHP 7.1
+
+Only for '.exe' files now.
