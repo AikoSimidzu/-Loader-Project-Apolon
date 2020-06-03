@@ -1,30 +1,24 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Management;
-using System.Text;
-using System.Windows.Forms;
-
-namespace ApolonSpaceXLoader
+﻿namespace ApolonSpaceXLoader
 {
+    using System;
+    using System.Management;
+    using System.Security.Cryptography;
+
     class Helper
     {
         public static string HWID()
         {
             string str = string.Empty;
+            try
             {
-                try
+                string str2 = Environment.GetFolderPath(Environment.SpecialFolder.System).Substring(0, 1);
+                using (ManagementObject obj1 = new ManagementObject("win32_logicaldisk.deviceid=\"" + str2 + ":\""))
                 {
-                    string str2 = Environment.GetFolderPath(Environment.SpecialFolder.System).Substring(0, 1);
-                    ManagementObject obj1 = new ManagementObject("win32_logicaldisk.deviceid=\"" + str2 + ":\"");
                     obj1.Get();
-                    str = obj1["VolumeSerialNumber"].ToString();
-                }
-                catch (Exception)
-                {
+                    str = obj1["VolumeSerialNumber"]?.ToString();
                 }
             }
+            catch{}
             return str;
         }
 
@@ -40,9 +34,7 @@ namespace ApolonSpaceXLoader
                     (string)managementObject["Version"]
                     });
                 }
-                catch
-                {
-                }
+                catch{}
             }
             return "BIOS Maker: Unknown";
         }
@@ -59,19 +51,32 @@ namespace ApolonSpaceXLoader
             return gn;
         }
 
-        public static string RandomID()
+        // https://ipconfig.ws/threads/%D0%9A%D0%BB%D0%B0%D1%81%D1%81-%D0%B4%D0%BB%D1%8F-%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%80%D0%B0%D0%BD%D0%B4%D0%BE%D0%BC%D0%BD%D1%8B%D1%85-%D1%81%D1%82%D1%80%D0%BE%D0%BA.53/
+        public static string RandomID(int length)
         {
-            string Alphabet = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
-            Random rnd = new Random();
-            StringBuilder sb = new StringBuilder(6);
-            int Position = 0;
+            char[] identifier = new char[length];
+            byte[] randomData = new byte[length];
 
-            for (int i = 0; i < 7; i++)
+            using (var rng = new RNGCryptoServiceProvider())
             {
-                Position = rnd.Next(0, Alphabet.Length - 1);
-                sb.Append(Alphabet[Position]);
+                rng.GetBytes(randomData);
             }
-            return sb.ToString();
+
+            for (int idx = 0; idx < identifier.Length; idx++)
+            {
+                identifier[idx] = AvailableCharacters[randomData[idx] % AvailableCharacters.Length];
+            }
+
+            return new string(identifier);
         }
+
+        private static readonly char[] AvailableCharacters =
+        {
+           'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+           'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+           'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+           'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+           '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'
+        };
     }
 }
