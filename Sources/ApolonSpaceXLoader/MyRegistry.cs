@@ -16,9 +16,7 @@
                 RegistryKey ProgramFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\");
 
                 if (ProgramFolder != null)
-                {
-                    Application.Exit();
-                }
+                {}
                 else
                 {
                     SetFirstSettings();
