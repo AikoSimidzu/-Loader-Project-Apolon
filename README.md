@@ -17,8 +17,4 @@ C#, Framework 4, PHP 7.1
 Only for '.exe' files now.
 
 # Changelog
--Random ID generation method changed
-
--Fix file download
-
--Code structure changed
+-Preparing for the next panel update. Little by little I add statistics by country.
