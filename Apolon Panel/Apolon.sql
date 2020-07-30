@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 01 2020 г., 13:29
+-- Время создания: Июл 30 2020 г., 07:57
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.1.32
 
@@ -37,6 +37,17 @@ CREATE TABLE `bots` (
   `OS` longtext,
   `AV` longtext
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `countries`
+--
+
+CREATE TABLE `countries` (
+  `country` longtext CHARACTER SET armscii8 NOT NULL,
+  `value` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 

@@ -30,6 +30,26 @@ if(mysqli_num_rows($check) > 0)
     exit(0);
 }
 
+$check = mysqli_query($mysqli, "SELECT * FROM `countries` WHERE `country`='".mysqli_real_escape_string($mysqli, $country)."'");
+if(mysqli_num_rows($check) > 0)
+{
+    $result = mysqli_query($mysqli, "SELECT `value` FROM `countries` where  `country`='".mysqli_real_escape_string($mysqli, $country) ."'") or die("Ошибка " . mysqli_error($mysqli));
+    if($result)
+    {
+        while ($row = mysqli_fetch_row($result)) {
+            mysqli_query($mysqli, "UPDATE `countries` SET `value`=1 + $row[0] WHERE `country`='".mysqli_real_escape_string($mysqli, $country) ."'") or die("Ошибка " . mysqli_error($mysqli));
+        }
+
+        mysqli_free_result($result);
+    }
+} else {
+    mysqli_query($mysqli, "
+    INSERT INTO `countries` 
+    SET `country`='$country', 
+        `value`='" . mysqli_real_escape_string($mysqli, '1') . "'
+");
+}
+
 mysqli_query($mysqli, "
     INSERT INTO `bots` 
     SET `ip`='" . $ip . "', 
