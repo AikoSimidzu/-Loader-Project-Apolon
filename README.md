@@ -17,4 +17,4 @@ C#, Framework 4, PHP 7.1
 Only for '.exe' files now.
 
 # Changelog
--Preparing for the next panel update. Little by little I add statistics by country.
+-Add countries statistic
