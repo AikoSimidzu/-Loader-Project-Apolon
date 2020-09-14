@@ -18,3 +18,6 @@ Only for '.exe' files now.
 
 # Changelog
 -Added countries statistic
+
+# Renovation plan
+-add sending notifications to Telegram
