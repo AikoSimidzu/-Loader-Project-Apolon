@@ -29,6 +29,7 @@ include('protect.php');
                 <ul class="nav navbar-nav">
 				<li><a href="loader.php" style="color: black">Loader</a></li>
                     <li><a href="Countries.php" style="color: black">Statistic</a></li>
+                    <li><a href="telegram.php" style="color: black">Telegram Notifications</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>
                 
                 </ul>

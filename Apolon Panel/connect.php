@@ -12,9 +12,9 @@ session_start();
 <body>
 <?php
 $host = "localhost";
-$user = "mysql";
-$pass = "mysql";
-$bdn = "apolon";
+$user = "mysqlLogin";
+$pass = "mysqlPassword";
+$bdn = "bdName";
 
 $mysqli = mysqli_connect($host, $user, $pass, $bdn);
 $result = mysqli_query($mysqli, "SELECT * FROM userinfo") or die("Ошибка " . mysqli_error($mysqli));
