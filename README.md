@@ -17,7 +17,7 @@ C#, Framework 4, PHP 7.1
 Only for '.exe' files now.
 
 # Changelog
--Added countries statistic
+-Added the ability to deliver notifications to Telegram using a bot
 
 # Renovation plan
--add sending notifications to Telegram
+-No offers
