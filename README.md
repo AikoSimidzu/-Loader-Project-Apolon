@@ -10,7 +10,7 @@ Updated due to being bored in quarantine.
 
 -Dynamic interchangeable links from the panel (DLR)
 
--Autorun
+-Auto run
 
 C#, Framework 4, PHP 7.1
 
