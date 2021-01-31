@@ -21,3 +21,7 @@ Only for '.exe' files now.
 
 # Renovation plan
 -No offers
+
+# Support
+Hi! You can supp me https://www.donationalerts.com/r/YatoSimidzu
+Thx you!
