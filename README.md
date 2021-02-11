@@ -17,7 +17,7 @@ C#, Framework 4, PHP 7.1
 Only for '.exe' files now.
 
 # Changelog
--Added the ability to deliver notifications to Telegram using a bot
+-Added CIS sorter
 
 # Renovation plan
 -Plugins support
