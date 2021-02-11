@@ -20,8 +20,6 @@ Only for '.exe' files now.
 -Added the ability to deliver notifications to Telegram using a bot
 
 # Renovation plan
--CIS sorter
-
 -Plugins support
 
 # Support
