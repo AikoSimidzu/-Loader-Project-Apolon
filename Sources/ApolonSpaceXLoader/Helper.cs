@@ -2,10 +2,30 @@
 {
     using System;
     using System.Management;
+    using System.Net;
     using System.Security.Cryptography;
 
     class Helper
     {
+        public static bool Cis(string domain)
+        {
+            try
+            {
+                using (WebClient wc = new WebClient())
+                {
+                    if (wc.DownloadString(domain + "/cisCheck.php") == "YES")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch { return false; }
+        }
+
         public static string HWID()
         {
             string str = string.Empty;

