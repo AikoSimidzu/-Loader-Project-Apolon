@@ -12,6 +12,8 @@ Updated due to being bored in quarantine.
 
 -Auto run
 
+-CIS sorter
+
 C#, Framework 4, PHP 7.1
 
 Only for '.exe' files now.
