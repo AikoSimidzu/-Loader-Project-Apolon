@@ -21,9 +21,15 @@ Only for '.exe' files now.
 # Changelog
 -Added CIS sorter
 
+-Fix location to table.php
+
 # Renovation plan
 -Plugins support
 
 # Support
+How to install?
+
+https://youtu.be/K-tMGSVgk4A
+
 Hi! You can supp me https://www.donationalerts.com/r/YatoSimidzu
 Thx you!
