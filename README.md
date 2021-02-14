@@ -25,5 +25,9 @@ Only for '.exe' files now.
 -Plugins support
 
 # Support
+How to install?
+
+https://youtu.be/K-tMGSVgk4A
+
 Hi! You can supp me https://www.donationalerts.com/r/YatoSimidzu
 Thx you!
