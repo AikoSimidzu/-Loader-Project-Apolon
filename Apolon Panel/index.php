@@ -39,7 +39,7 @@ include('connect.php');
     {
         ?>
         <script>
-            document.location.href = "/Table.php";
+            document.location.href = "/table.php";
         </script>
         <?php
     }
