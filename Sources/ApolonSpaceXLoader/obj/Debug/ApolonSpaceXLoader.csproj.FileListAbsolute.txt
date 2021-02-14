@@ -4,3 +4,8 @@ C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\Apol
 C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.csproj.CoreCompileInputs.cache
 C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.exe
 C:\Users\steal\source\repos\ApolonSpaceXLoader\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.pdb
+E:\Program Files (x86)\GIT\-Loader-Project-Apolon\Sources\ApolonSpaceXLoader\bin\Debug\ApolonSpaceXLoader.exe
+E:\Program Files (x86)\GIT\-Loader-Project-Apolon\Sources\ApolonSpaceXLoader\bin\Debug\ApolonSpaceXLoader.pdb
+E:\Program Files (x86)\GIT\-Loader-Project-Apolon\Sources\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.csproj.CoreCompileInputs.cache
+E:\Program Files (x86)\GIT\-Loader-Project-Apolon\Sources\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.exe
+E:\Program Files (x86)\GIT\-Loader-Project-Apolon\Sources\ApolonSpaceXLoader\obj\Debug\ApolonSpaceXLoader.pdb

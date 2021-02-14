@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DCE37310-85AE-4F8E-82B3-1EB8EF111AE7}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>ApolonSpaceXLoader</RootNamespace>
     <AssemblyName>ApolonSpaceXLoader</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>

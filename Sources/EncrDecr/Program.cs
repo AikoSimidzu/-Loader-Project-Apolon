@@ -12,7 +12,7 @@ namespace EncrDecr
         {
             Console.WriteLine("Enter your domain with Http/s\n");
             string Domain = Console.ReadLine();            
-            Console.WriteLine(Convert.ToBase64String(Encoding.UTF8.GetBytes($"{Domain}/gate.php?")));
+            Console.WriteLine(Convert.ToBase64String(Encoding.UTF8.GetBytes(Domain)));
             Console.ReadKey();
         }
     }
