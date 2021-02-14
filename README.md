@@ -21,6 +21,8 @@ Only for '.exe' files now.
 # Changelog
 -Added CIS sorter
 
+-Fix location to table.php
+
 # Renovation plan
 -Plugins support
 
