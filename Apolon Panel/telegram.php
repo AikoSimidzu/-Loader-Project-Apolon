@@ -25,7 +25,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="loader.php" style="color: black">Loader</a></li>
-                <li><a href="Table.php" style="color: black">Panel</a></li>
+                <li><a href="table.php" style="color: black">Panel</a></li>
                     <li><a href="Countries.php" style="color: black">Statistic</a></li>
                     <li><a href="cis.php" style="color: black">CIS</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>                
