@@ -46,13 +46,11 @@ https://visualstudio.microsoft.com/ru/downloads/ (community)
 Не беда! На этот случай, я добавил получение пути с помощью конвертирования строки.
 
 Пример использования в консоле:
-<
-cd %AppData%\Apolon
+<cd %AppData%\Apolon >
 cd %UserProfile%\Apolon
 cd %Documents%\Apolon
 cd %ProgramFiles%\Apolon
 cd %Startup%\Apolon
->
 
 Пример использования в панели:
 <
