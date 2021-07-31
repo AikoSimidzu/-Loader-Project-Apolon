@@ -48,18 +48,26 @@ https://visualstudio.microsoft.com/ru/downloads/ (community)
 Пример использования в консоле:
 
 `cd %AppData%\Apolon`
+
 `cd %UserProfile%\Apolon`
+
 `cd %Documents%\Apolon`
+
 `cd %ProgramFiles%\Apolon`
+
 `cd %Startup%\Apolon`
 
 
 Пример использования в панели:
 
 `cd {AppData}\Apolon`
+
 `cd {UserProfile}\Apolon`
+
 `cd {Documents}\Apolon`
+
 `cd {ProgramFiles}\Apolon`
+
 `cd {Startup}\Apolon`
 
 Всё гораздо проще, чем кажется!
