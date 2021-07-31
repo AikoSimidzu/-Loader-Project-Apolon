@@ -19,9 +19,7 @@ C#, Framework 4, PHP 7.1
 Only for '.exe' files now.
 
 # Changelog
--Added CIS sorter
-
--Fix location to table.php
+-I forgot to remove the debug line from EncrDecr for which I apologize. I also found some problems in Apolon's own code, so I fixed them.
 
 # Renovation plan
 -Plugins support
