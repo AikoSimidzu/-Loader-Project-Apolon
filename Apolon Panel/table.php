@@ -31,6 +31,8 @@ include('protect.php');
                     <li><a href="Countries.php" style="color: black">Statistic</a></li>
                     <li><a href="telegram.php" style="color: black">Telegram Notifications</a></li>
                     <li><a href="cis.php" style="color: black">CIS</a></li>
+                    <li><a href="comma.php" style="color: black">CMD control</a></li>
+                    <li><a href="modules.php" style="color: black">Modules</a></li>
 				<li><a href="logout.php" style="color: black">Logout</a></li>
                 
                 </ul>
@@ -53,9 +55,6 @@ include('protect.php');
                 ';
                 ?>
             </div>
-            <form action="cmd.php" method="post">
-                <input type="hidden" name="del" value="1">
-            </form> 
             <br>          
             <table class="table table-bordered">
                 <thead>
@@ -76,7 +75,7 @@ include('protect.php');
                         if(isset($_GET['p'])){
                             $p1 = $_GET['p'];
                             $t1 = $_GET['p'] * 10;
-                            $workers = mysqli_query("SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT $t1, 10");
+                            $workers = mysqli_query($mysqli,"SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT $t1, 10");
                         }
                         else{
                             $workers = mysqli_query($mysqli, "SELECT * FROM `bots` WHERE `checked` != 'true' ORDER BY `id` DESC LIMIT 10");
