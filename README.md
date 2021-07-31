@@ -16,7 +16,11 @@ Updated due to being bored in quarantine.
 
 -CIS sorter
 
-C#, Framework 4, PHP 7.1
+-CMD using
+
+-Support modules
+
+C#, Framework 4.5, PHP 7.3
 
 Only for '.exe' files now.
 
