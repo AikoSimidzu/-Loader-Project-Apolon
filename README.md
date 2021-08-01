@@ -44,7 +44,9 @@ Only for '.exe' files now.
 
 # Support
 How to install?
-https://youtu.be/K-tMGSVgk4A
+
+1. https://youtu.be/K-tMGSVgk4A
+2. Watch `Documentation` in repository
 
 Hi! You can supp me https://www.donationalerts.com/r/YatoSimidzu
 Thx you!
